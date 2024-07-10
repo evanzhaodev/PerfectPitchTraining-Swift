@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,107 @@
 		CFABFD142C3DB8C300F56B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFABFD172C3DB8C300F56B7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CFABFDD02C3E127400F56B7D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"0-a.wav",
+				"0-as.wav",
+				"0-b.wav",
+				"1-a.wav",
+				"1-as.wav",
+				"1-b.wav",
+				"1-c.wav",
+				"1-cs.wav",
+				"1-d.wav",
+				"1-ds.wav",
+				"1-e.wav",
+				"1-f.wav",
+				"1-fs.wav",
+				"1-g.wav",
+				"1-gs.wav",
+				"2-a.wav",
+				"2-as.wav",
+				"2-b.wav",
+				"2-c.wav",
+				"2-cs.wav",
+				"2-d.wav",
+				"2-ds.wav",
+				"2-e.wav",
+				"2-f.wav",
+				"2-fs.wav",
+				"2-g.wav",
+				"2-gs.wav",
+				"3-a.wav",
+				"3-as.wav",
+				"3-b.wav",
+				"3-c.wav",
+				"3-cs.wav",
+				"3-d.wav",
+				"3-ds.wav",
+				"3-e.wav",
+				"3-f.wav",
+				"3-fs.wav",
+				"3-g.wav",
+				"3-gs.wav",
+				"4-a.wav",
+				"4-as.wav",
+				"4-b.wav",
+				"4-c.wav",
+				"4-cs.wav",
+				"4-d.wav",
+				"4-ds.wav",
+				"4-e.wav",
+				"4-f.wav",
+				"4-fs.wav",
+				"4-g.wav",
+				"4-gs.wav",
+				"5-a.wav",
+				"5-as.wav",
+				"5-b.wav",
+				"5-c.wav",
+				"5-cs.wav",
+				"5-d.wav",
+				"5-ds.wav",
+				"5-e.wav",
+				"5-f.wav",
+				"5-fs.wav",
+				"5-g.wav",
+				"5-gs.wav",
+				"6-a.wav",
+				"6-as.wav",
+				"6-b.wav",
+				"6-c.wav",
+				"6-cs.wav",
+				"6-d.wav",
+				"6-ds.wav",
+				"6-e.wav",
+				"6-f.wav",
+				"6-fs.wav",
+				"6-g.wav",
+				"6-gs.wav",
+				"7-a.wav",
+				"7-as.wav",
+				"7-b.wav",
+				"7-c.wav",
+				"7-cs.wav",
+				"7-d.wav",
+				"7-ds.wav",
+				"7-e.wav",
+				"7-f.wav",
+				"7-fs.wav",
+				"7-g.wav",
+				"7-gs.wav",
+				"8-c.wav",
+			);
+			target = CFABFD0C2C3DB8C200F56B7D /* PerfectPitchTraining */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CFABFD1E2C3E124000F56B7D /* PitchAudioAsset */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (CFABFDD02C3E127400F56B7D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = PitchAudioAsset; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CFABFD0A2C3DB8C200F56B7D /* Frameworks */ = {
@@ -53,6 +154,7 @@
 			children = (
 				CFABFD102C3DB8C200F56B7D /* PerfectPitchTrainingApp.swift */,
 				CFABFD122C3DB8C200F56B7D /* ContentView.swift */,
+				CFABFD1E2C3E124000F56B7D /* PitchAudioAsset */,
 				CFABFD142C3DB8C300F56B7D /* Assets.xcassets */,
 				CFABFD162C3DB8C300F56B7D /* Preview Content */,
 			);
