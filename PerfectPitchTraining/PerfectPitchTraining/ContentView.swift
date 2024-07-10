@@ -11,6 +11,9 @@ import AVFoundation
 struct ContentView: View {
     @State private var debugLog: String = ""
     @State private var audioPlayer: AVAudioPlayer?
+    @State private var lastPlayedNoteName: String? = nil
+    @State private var showAnswer: Bool = false
+    
     private var pitches: [String] {
         var pitchBuilder = [String]()
         for i in 1...7 {
@@ -34,7 +37,13 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    Button("Generate a new pitch") { playSound() }
+                    Button("Generate a new pitch") { playSound(replay: false) }
+                    Button("Replay the last note") { playSound(replay: true)}
+                }
+                
+                Section {
+                    Toggle("Show answer", isOn: $showAnswer)
+                    Text("Answer is: \(showAnswer ? lastPlayedNoteName ?? "" : "")")
                 }
                 
                 Section {
@@ -46,10 +55,10 @@ struct ContentView: View {
         }
     }
     
-    func playSound() {
+    func playSound(replay: Bool = false) {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
 
-        guard let pitchFileName = pitches.randomElement(),
+        guard let pitchFileName = replay ? lastPlayedNoteName: pitches.randomElement(),
               let url = Bundle.main.url(forResource: pitchFileName, withExtension: "wav") else {
             print("File not found")
             debugLog = "File not found"
@@ -58,11 +67,12 @@ struct ContentView: View {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()
+            debugLog = "Successful"
+            lastPlayedNoteName = pitchFileName
         } catch {
             print("Error playing sound \(error.localizedDescription)")
             debugLog = "Error playing sound \(error.localizedDescription)"
         }
-        debugLog = "Successful"
     }
 }
 
