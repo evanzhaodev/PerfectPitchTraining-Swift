@@ -47,6 +47,8 @@ struct ContentView: View {
     }
     
     func playSound() {
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+
         guard let pitchFileName = pitches.randomElement(),
               let url = Bundle.main.url(forResource: pitchFileName, withExtension: "wav") else {
             print("File not found")
