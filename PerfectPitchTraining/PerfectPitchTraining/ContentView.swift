@@ -13,8 +13,9 @@ struct ContentView: View {
     @State private var audioPlayer: AVAudioPlayer?
     @State private var lastPlayedNoteName: String? = nil
     @State private var showAnswer: Bool = false
+    @State private var whiteKeysOnly: Bool = false
     
-    private var pitches: [String] {
+    private var allKeys: [String] {
         var pitchBuilder = [String]()
         for i in 1...7 {
             pitchBuilder.append("\(i)-a")
@@ -33,6 +34,20 @@ struct ContentView: View {
         return pitchBuilder
     }
     
+    private var whiteKeys: [String] {
+        var pitchBuilder = [String]()
+        for i in 1...7 {
+            pitchBuilder.append("\(i)-a")
+            pitchBuilder.append("\(i)-b")
+            pitchBuilder.append("\(i)-c")
+            pitchBuilder.append("\(i)-d")
+            pitchBuilder.append("\(i)-e")
+            pitchBuilder.append("\(i)-f")
+            pitchBuilder.append("\(i)-g")
+        }
+        return pitchBuilder
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -42,6 +57,7 @@ struct ContentView: View {
                 }
                 
                 Section {
+                    Toggle("White keys only", isOn: $whiteKeysOnly)
                     Toggle("Show answer", isOn: $showAnswer)
                     Text("Answer is: \(showAnswer ? lastPlayedNoteName ?? "" : "")")
                 }
@@ -58,7 +74,7 @@ struct ContentView: View {
     func playSound(replay: Bool = false) {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
 
-        guard let pitchFileName = replay ? lastPlayedNoteName: pitches.randomElement(),
+        guard let pitchFileName = replay ? lastPlayedNoteName : (whiteKeysOnly ? whiteKeys.randomElement() : allKeys.randomElement()),
               let url = Bundle.main.url(forResource: pitchFileName, withExtension: "wav") else {
             print("File not found")
             debugLog = "File not found"
